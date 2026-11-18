@@ -1,0 +1,29 @@
+# PyCharm project files
+.idea/
+
+# Terraform working files and state
+**/.terraform/
+*.tfstate
+*.tfstate.*
+*.tfplan
+crash.log
+crash.*.log
+
+# Environment-specific configuration
+*.tfvars
+!*.tfvars.example
+
+# Local environment and credentials
+.env
+*.pem
+
+# Python virtual environments and caches
+.venv/
+__pycache__/
+*.py[cod]
+
+# Local Terraform override files
+override.tf
+override.tf.json
+*_override.tf
+*_override.tf.json

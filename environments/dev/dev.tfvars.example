@@ -1,0 +1,66 @@
+
+########################################
+# Environment Config
+########################################
+
+environment = "dev"
+
+########################################
+# Network Config
+########################################
+
+# Primary VPC definition
+vpc_name = "primary"
+vpc_cidr = "10.0.0.0/16"
+
+internet_gw_name = "primary"
+
+# Availability Zones
+availability_zones = [
+  "us-west-2a",
+  "us-west-2b"
+]
+
+# Public subnets
+# To host:
+# - Internet-facing Application Load Balancers
+# - NAT Gateway
+
+public_subnet_cidrs = [
+  "10.0.1.0/24",
+  "10.0.2.0/24"
+]
+
+# Private subnets
+# To host:
+# - EKS worker nodes
+# - Kubernetes workloads
+# - Future internal EC2 instances
+
+private_subnet_cidrs = [
+  "10.0.11.0/24",
+  "10.0.12.0/24"
+]
+
+
+########################################
+# EKS Cluster Configuration
+########################################
+
+cluster_name       = "dev-eks"
+kubernetes_version = "1.37"
+
+# Restrict public Kubernetes API access to your public IP address.
+cluster_endpoint_public_access_cidrs = [
+  "YOUR_PUBLIC_IP/32"
+]
+
+########################################
+# EKS Worker Node Configuration
+########################################
+
+node_instance_type = "t3.medium"
+
+node_desired_size = 2
+node_min_size     = 1
+node_max_size     = 2
